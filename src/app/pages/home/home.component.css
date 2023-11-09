@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    font-family: Poppins;
+    background-image: url("../../../assets/img/fondo-de-libros.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.principal{
+    background-color: rgba(0, 0, 0, 0.726);
+    height: 100vh;
+    color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+}
