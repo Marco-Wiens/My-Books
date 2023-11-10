@@ -6,13 +6,13 @@
         
         <form action="" >
             <h3 style="font-family: Poppins;">Regístrate</h3>
-            <input type="text" placeholder="Nombre">
-            <input type="text" placeholder="Apellido">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="URL">
-            <input type="password" placeholder="Contraseña"> 
+            <input type="text" placeholder="Nombre" #name>
+            <input type="text" placeholder="Apellido" #apellido>
+            <input type="text" placeholder="Email" #email>
+            <input type="text" placeholder="URL" #imagen>
+            <input type="password" placeholder="Contraseña" #contrasena> 
             <input type="password" placeholder="Repetir contraseña">
-            <button style="cursor: pointer;" routerLink="/register">Log in</button>
+            <button style="cursor: pointer;" routerLink="/register" (click)="crearUser(name.value, apellido.value, email.value, imagen.value, contrasena.value)">Log in</button>
         </form>
     </div>
 </div>
