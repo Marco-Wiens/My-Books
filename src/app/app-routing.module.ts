@@ -5,6 +5,8 @@ import { FormRegisterComponent } from './components/form-register/form-register.
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { BooksComponent } from './pages/books/books.component';
+import { AddBookComponent } from './pages/add-book/add-book.component';
+import { UpdateBookComponent } from './pages/update-book/update-book.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent
+  },
+  {
+    path: 'addbooks',
+    component: AddBookComponent
+  },
+  {
+    path: 'updatebooks',
+    component: UpdateBookComponent
   }
 ];
 
