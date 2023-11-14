@@ -16,10 +16,6 @@ export class UpdateBookComponent {
 
   modificarLibro(id_book:string, title: string, type: string, author: string, price:string, photo:string){
     if(id_book != "" && title != "" && type != "" && author != "" && price != "" && photo != ""){
-      // Verifica si ya existe un libro con el mismo id_book
-      const existingBook = this.booksService.getAll().find(book => book.id_book === Number(id_book));
-
-      
         // Crea un nuevo libro
         let modBook: Books = new Books(title, type, author, Number(price), photo, Number(id_book));
         // Llama al método add del servicio BooksService que añade el libro al array de libros
