@@ -30,7 +30,6 @@ export class BooksService {
     } else {
       // Utiliza el método filter para obtener un array de libros que coincidan con el número
       librosFiltrados = this.books.filter(book => book.id_book.toString().includes(id_libro.toString()));
-      console.log(id_libro);
       
     }
     return librosFiltrados;
