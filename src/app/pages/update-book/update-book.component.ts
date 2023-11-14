@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Books } from 'src/app/models/books';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-update-book',
@@ -9,11 +10,25 @@ import { Books } from 'src/app/models/books';
 export class UpdateBookComponent {
 
 
+  constructor(public booksService: BooksService){
+
+  }
+
   modificarLibro(id_book:string, title: string, type: string, author: string, price:string, photo:string){
-    let bookNew : Books; 
     if(id_book != "" && title != "" && type != "" && author != "" && price != "" && photo != ""){
-      bookNew = new Books( title, type, author, Number(price), photo, Number(id_book));
-      // this.books.push(bookNew);
+      // Verifica si ya existe un libro con el mismo id_book
+      const existingBook = this.booksService.getAll().find(book => book.id_book === Number(id_book));
+
+      if (existingBook) {
+        alert("Ya existe un libro con el mismo ID. No se puede añadir el libro.");
+      } else {
+        // Crea un nuevo libro
+        let modBook: Books = new Books(title, type, author, Number(price), photo, Number(id_book));
+        // Llama al método add del servicio BooksService que añade el libro al array de libros
+        this.booksService.edit(modBook);
+      }
+    } else {
+      alert("Por favor, rellene todos los campos");
     }
   }
 }
