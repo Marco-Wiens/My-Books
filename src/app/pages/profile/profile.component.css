@@ -1,6 +1,6 @@
 .back{
     background-image: url("../../../assets/img/fondo-de-libros.jpg");
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -34,7 +34,7 @@
 }
 .fond{
     font-family: Poppins_No_Bold;
-    height: 100vh;
+    height: fit-content;
     width: 100%;
     display: flex;
     align-items: center;
@@ -46,6 +46,7 @@
     padding: 80px;
     display: flex;
     flex-direction: column;
+    background-color: antiquewhite;
 
     align-items: center;
 }

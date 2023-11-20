@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Books } from '../models/books';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class BooksService {
   // Array donde se van a ir guardando todos los libros
   private books: Books[]
 
-  constructor() {
+  constructor( private toastr: ToastrService) {
     // Se inicializa el array
     this.books = [];
   }
@@ -20,9 +21,11 @@ export class BooksService {
 
   }
 
-  public getOne(id_libro:number):Books[]{
+  public getOne(id_book:string):Books[]{
 
+    let id_libro = Number(id_book);
     let librosFiltrados: Books[]=[];
+
     if (id_libro === undefined || id_libro === 0 || id_libro == null || id_libro.toString().trim() === "") {
       // Si el parámetro es undefined o una cadena vacía, devuelve el array completo
       librosFiltrados = this.books;
@@ -32,6 +35,12 @@ export class BooksService {
       librosFiltrados = this.books.filter(book => book.id_book.toString().includes(id_libro.toString()));
       
     }
+
+    if(librosFiltrados.length === 0 && this.books.length > 0){
+      this.toastr.warning("El libro introducido no existe",'Libro con id = ' + id_book + ' no existe', {
+        timeOut: 2000,
+      });
+    }
     return librosFiltrados;
   }
 
@@ -39,7 +48,9 @@ export class BooksService {
       // Mete el libro en el array de libros
       
       this.books.push(book);
-      alert("Libro añadido");
+      this.toastr.success("Se añadió el libro correctamente",book.title + ' Añadido', {
+        timeOut: 2000,
+      });
     
   }
 
@@ -63,9 +74,13 @@ export class BooksService {
           id_user: book.id_user
         };
         editado= true;
-        alert("Libro modificado");
+        this.toastr.success("Se modificó el libro correctamente",book.title + ' Modificado', {
+          timeOut: 2000,
+        });
       }else{
-        alert("Este libro no existe");
+        this.toastr.warning("Este libro no existe","¡Atención!", {
+          timeOut: 2000,
+        });
       }
     }
 
@@ -76,6 +91,9 @@ export class BooksService {
   public delete(id_book: number): void {
     // Elimina el libro por id_libro le entra por parámetros a traves del metodo filter
     this.books = this.books.filter(book => book.id_book !== id_book);
+    this.toastr.success("Se eliminó el libro correctamente",'Libro Eliminado', {
+      timeOut: 2000,
+    });
   }
 
 }

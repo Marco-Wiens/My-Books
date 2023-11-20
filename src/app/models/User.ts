@@ -1,3 +1,5 @@
+
+
 export class User{
     
     public id_user: number;
@@ -7,7 +9,7 @@ export class User{
     public imagen: string;
     public password: string;
 
-    constructor( name:string, apellido: string, email:string, imagen: string, password: string){
+    constructor(name:string, apellido: string, email:string, imagen: string, password: string){
         this.id_user = 0;
         this.name = name;
         this.apellido = apellido;

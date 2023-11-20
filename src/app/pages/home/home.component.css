@@ -5,15 +5,13 @@
 main{
     font-family: Poppins;
     background-image: url("../../../assets/img/fondo-de-libros.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+
     background-attachment: fixed;
 }
 
 .principal{
     background-color: rgba(0, 0, 0, 0.726);
-    height: 100vh;
+    height: 89vh;
     color: beige;
     display: flex;
     flex-direction: column;

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Books } from 'src/app/models/books';
 import { BooksService } from 'src/app/shared/books.service';
 
+
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -29,7 +30,9 @@ export class AddBookComponent {
         let bookNew: Books = new Books(title, type, author, Number(price), photo, Number(id_book));
         // Llama al método add del servicio BooksService que añade el libro al array de libros
         this.booksService.add(bookNew);
+        
       }
+      
     } else {
       alert("Por favor, rellene todos los campos");
     }

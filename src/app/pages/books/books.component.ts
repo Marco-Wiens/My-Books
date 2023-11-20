@@ -16,7 +16,7 @@ export class BooksComponent implements OnInit{
 
   
   books: Books[];
-  searchItem: number = 0;
+  searchItem: string = "";
 
   constructor(public booksService:BooksService){
     this.books = this.booksService.getAll();
@@ -26,6 +26,7 @@ export class BooksComponent implements OnInit{
 
 
   ngOnInit(): void {
+
   }
 
   deleteBook(i:number){

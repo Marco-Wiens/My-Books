@@ -1,6 +1,6 @@
 .back{
     background-image: url("../../../assets/img/fondo-de-libros.jpg");
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,4 +90,7 @@ button{
 
 .color-diferente{
     background-color: darkblue;
+}
+.no_libros{
+    height: 89vh;
 }
