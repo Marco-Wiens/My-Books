@@ -33,7 +33,12 @@ header{
     padding: 10px;
 }
 
+
 a{
     color: white;
     font-size: medium;
+}
+
+.active{
+    color: #ea4f79;
 }
