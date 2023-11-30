@@ -17,7 +17,7 @@ export class BooksComponent implements OnInit{
   
 
   
-  // books: Books[];
+  books: Books[];
   searchItem: string = "";
 
   constructor(public booksService:BooksService, public toastr: ToastrService){
@@ -38,6 +38,7 @@ export class BooksComponent implements OnInit{
       } else {
         const dataAsArray: Books[] = Array.isArray(respuesta.data) ? respuesta.data : [respuesta.data];
         this.booksService.books = dataAsArray;
+        this.books = this.booksService.books;
       }
     });
   }
@@ -49,8 +50,7 @@ export class BooksComponent implements OnInit{
         this.toastr.error(respuesta.mensaje);
       } else {
         this.toastr.success(respuesta.mensaje);
-        const dataAsArray: Books[] = Array.isArray(respuesta.data) ? respuesta.data : [respuesta.data];
-        this.booksService.books = dataAsArray;
+        this.mostrarTodos();
       }
     });
   }
@@ -60,14 +60,14 @@ export class BooksComponent implements OnInit{
     // Llama a la función getOne con el término de búsqueda actual
 
     this.booksService.getOne(id_libro.value).subscribe((respuesta: Respuesta) => {
-      console.log(id_libro.value);
       
         if (id_libro.value) {
           if (respuesta.error) {
             this.toastr.error(respuesta.mensaje);
           } else {
             const dataAsArray: Books[] = Array.isArray(respuesta.data) ? respuesta.data : [respuesta.data];
-            this.booksService.books = dataAsArray;
+            this.books = dataAsArray;
+            
           }
         } else {
           this.mostrarTodos();

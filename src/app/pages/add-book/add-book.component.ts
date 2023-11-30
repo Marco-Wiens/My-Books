@@ -18,13 +18,13 @@ export class AddBookComponent {
 
   }
   
-  crearLibro(id_book:string, title: string, type: string, author: string, price:string, photo:string){
+  crearLibro( title: string, type: string, author: string, price:string, photo:string){
 
 
     // Verifica que todos los campos estén llenos
-    if (id_book !== undefined && title !== "" && type !== "" && author !== "" && price !== undefined && photo !== "") {
+    if (title !== "" && type !== "" && author !== "" && price !== undefined && photo !== "") {
       
-      let newBook: Books = new Books(title, type, author, Number(price), photo, Number(id_book));
+      let newBook: Books = new Books(title, type, author, Number(price), photo);
       
       this.booksService.add(newBook).subscribe((respuesta: Respuesta) => {
         if (!respuesta.error) {
